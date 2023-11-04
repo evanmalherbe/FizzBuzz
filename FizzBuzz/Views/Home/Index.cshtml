@@ -1,15 +1,18 @@
 ﻿@model List<FizzResult>
 
-<div class="text-center">
+<div>
     <h1 class="display-4">Welcome to FizzBuzz!</h1>
-    @using (Html.BeginForm("Start", "Home", FormMethod.Post))
-    {
-        <input type="submit" value="Start" class="btn btn-default" />
-    }
 
     @foreach (var item in Model)
     {
-        <div>(@item.Count), @item.Word</div>    
+        if (item.Count == Model.Count)
+        {
+            <span>@item.Word</span>
+        }
+        else
+        {
+            <span>@item.Word, </span>    
+        }
     }
   
 </div>

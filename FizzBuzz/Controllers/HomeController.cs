@@ -40,10 +40,41 @@ namespace FizzBuzz.Controllers
             for (int i = 1; i <= 100; i++)
             {
                 int counter = i;
+
+                if (counter % 3 == 0 && counter % 5 == 0)
+                {
+                    results.Add(new FizzResult()
+                    {
+                        Count = counter,
+                        Word = "FizzBuzz"
+                    });
+                    continue;
+                }
+
+                if (counter % 3 == 0)
+                {
+                    results.Add(new FizzResult()
+                    {
+                        Count = counter,
+                        Word = "Fizz"
+                    });
+                    continue;
+                }
+
+                if (counter % 5 == 0)
+                {
+                    results.Add(new FizzResult()
+                    {
+                        Count = counter,
+                        Word = "Buzz"
+                    });
+                    continue;
+                }
+
                 results.Add(new FizzResult()
                 {
                     Count = counter,
-                    Word = i.ToString()
+                    Word = counter.ToString()
                 });
             }
 
