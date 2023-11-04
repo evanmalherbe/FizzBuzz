@@ -15,7 +15,8 @@ namespace FizzBuzz.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var result = Start();
+            return View(result);
         }
 
         public IActionResult Privacy()
@@ -27,6 +28,26 @@ namespace FizzBuzz.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private List<FizzResult> Start()
+        {
+            //any number divisible by three is replaced by the word fizz and any number divisible by five by
+            //the word buzz. Numbers divisible by both three and five (i.e. divisible by 15) become fizz buzz. 
+
+            List<FizzResult> results = new List<FizzResult>();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                int counter = i;
+                results.Add(new FizzResult()
+                {
+                    Count = counter,
+                    Word = i.ToString()
+                });
+            }
+
+            return results;
         }
     }
 }
