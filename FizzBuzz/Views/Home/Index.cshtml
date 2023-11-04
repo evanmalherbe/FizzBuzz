@@ -5,14 +5,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.Count == Model.Count)
-        {
-            <span>@item.Word</span>
-        }
-        else
-        {
-            <span>@item.Word, </span>    
-        }
+        <span>@item.Word@(item.Count == Model.Count ? "." : ", ")</span>
     }
-  
-</div>
+        
+</div>   
